@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YOLO 病虫害识别平台</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero-content">
+        <p class="badge">YOLO + 智能农业</p>
+        <h1>病虫害智能识别中心</h1>
+        <p class="subtitle">
+          通过摄像头实时捕捉作物影像，快速识别病虫害风险并给出处理建议。
+        </p>
+        <div class="hero-actions">
+          <button class="primary" id="startCamera">开启摄像头</button>
+          <button class="ghost" id="stopCamera" disabled>关闭摄像头</button>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card">
+          <span>识别准确率</span>
+          <strong>95.2%</strong>
+        </div>
+        <div class="stat-card">
+          <span>平均响应</span>
+          <strong>120ms</strong>
+        </div>
+        <div class="stat-card">
+          <span>支持作物</span>
+          <strong>32 种</strong>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="camera-panel">
+        <div class="panel-header">
+          <h2>实时检测</h2>
+          <p>对准作物叶片，点击识别即可看到分析结果。</p>
+        </div>
+        <div class="viewer">
+          <video id="video" autoplay playsinline></video>
+          <canvas id="overlay"></canvas>
+          <div class="placeholder" id="placeholder">
+            <div>
+              <h3>等待摄像头画面</h3>
+              <p>支持高清摄像头，建议光线充足</p>
+            </div>
+          </div>
+        </div>
+        <div class="controls">
+          <button class="primary" id="detectBtn" disabled>开始识别</button>
+          <button class="secondary" id="snapshotBtn" disabled>保存快照</button>
+          <label class="upload">
+            上传图片
+            <input type="file" id="uploadInput" accept="image/*" />
+          </label>
+        </div>
+        <div class="status" id="status">
+          <span class="dot"></span>
+          <span>等待摄像头连接...</span>
+        </div>
+      </section>
+
+      <aside class="info-panel">
+        <section class="card">
+          <h3>识别结果</h3>
+          <div class="result" id="result">
+            <p class="empty">暂未识别，请开始检测。</p>
+          </div>
+        </section>
+        <section class="card">
+          <h3>处理建议</h3>
+          <ul class="tips" id="tips">
+            <li>建议每日巡田两次，重点观察叶片背面。</li>
+            <li>发现病斑立即隔离并标记位置。</li>
+            <li>保持土壤通风排水，避免湿度过高。</li>
+          </ul>
+        </section>
+        <section class="card">
+          <h3>检测流程</h3>
+          <ol class="flow">
+            <li>打开摄像头并对准作物。</li>
+            <li>点击“开始识别”进行实时分析。</li>
+            <li>查看识别结果与建议措施。</li>
+          </ol>
+        </section>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <p>© 2025 病虫害识别平台 · YOLO 智能视觉</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
